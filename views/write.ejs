@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%- include('nav.ejs') %>
+    
+    <h1>글쓰기</h1>
+
+    <form action="/add" method="POST">
+        <fieldset>
+            <input type="text" name="title" placeholder="제목" size="45"><br><br>
+            <textarea type="text" name="content" placeholder="내용" cols="50" rows="30"></textarea><br><br>
+            <input type="submit" value="올리기"><br>
+        </fieldset>
+
+    </form>
+</body>
+</html>

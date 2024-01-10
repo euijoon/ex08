@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%- include('nav.ejs') %>
+    <h1>로그인</h1>
+    <form action="/login" method="POST">
+        <fieldset>
+            <label for="">아이디 <input type="text" name="username"></label><br>
+            <label for="">비밀번호 <input type="text" name="password"></label><br>
+        </fieldset>
+        <br>
+        <input type="submit" value="로그인">
+    </form>
+</body>
+</html>

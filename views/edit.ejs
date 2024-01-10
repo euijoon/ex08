@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%- include('nav.ejs') %>
+    
+    <h1>글쓰기/수정</h1>
+
+    <form action="/edit?_method=PUT" method="POST">
+        <fieldset>
+            <input type="text" name="title" value="<%= result.title %>" size="45"><br><br>
+            <textarea type="text" name="content" cols="50" rows="30"><%= result.content %></textarea><br><br>
+            <input type="hidden" value="<%= result._id %>" name="id">
+            <input type="submit" value="수정"><br>
+        </fieldset>
+
+    </form>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%- include('nav.ejs') %>
+
+    <h1>리스트</h1>
+
+    <% for(let i = 0; i < result.length; i++){ %> 
+        <div>
+            <h4><%= i + 1 %></h4>
+            <h4><a href="/detail/<%= result[i]._id %>"><%= result[i].title %></a></h4>
+            <p><a href="/edit/<%= result[i]._id %>">수정</a></p>
+            <span class="delete" data-id="<%= result[i]._id %>"> 삭제 </span>
+        </div>    
+    <% } %>
+    
+    <script>
+        for(let i = 0; i < "<%= result.length %>"; i++ ){
+            document.querySelectorAll('.delete')[i].addEventListener('click', function(e){
+            fetch('/delete?docid=' + e.target.dataset.id, {
+                method: 'DELETE'
+            })
+            .then((r)=>r.text())
+  		    .then((r)=>{
+    			e.target.parentElement.style.display = 'none'
+  		    })
+        })   
+        }
+        
+    </script>
+</body>
+</html>
